@@ -1,13 +1,18 @@
-package api
+package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"log"
+
+	"api/main.go/api/bot"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run()
+
+	// create bot
+	stockBot, err := bot.Create()
+	if err != nil {
+		log.Panic(err)
+	}
+
+	stockBot.Listen()
 }
