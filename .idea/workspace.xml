@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c253e15-b292-4b48-a772-74cd91d384ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/bot/bot.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config/constants.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/interpreter/model/interpreter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bot/bot.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/bot/bot.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/interpreter/model/interpreter.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/interpreter/model/interpreter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

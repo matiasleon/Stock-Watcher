@@ -7,19 +7,24 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
+type interpreter interface {
+	Interpret(name, messageText string) (string, error)
+}
+
 // Bot represents an bot entity that will listen incoming messages
 type Bot struct {
 	botClient    *tgbotapi.BotAPI
 	updateConfig tgbotapi.UpdateConfig
+	interpreter  interpreter
 }
 
 // CreateBot creates an instance of Bot
-func Create() (*Bot, error) {
+func Create(interpreter interpreter) (*Bot, error) {
 	botClient, err := tgbotapi.NewBotAPI(config.TelegramToken)
 	if err != nil {
 		return nil, err
 	}
-	newBot := &Bot{botClient: botClient}
+	newBot := &Bot{botClient: botClient, interpreter: interpreter}
 	newBot.setup()
 
 	return newBot, nil
@@ -51,9 +56,19 @@ func (b *Bot) Listen() {
 
 		log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
 
-		msg := tgbotapi.NewMessage(update.Message.Chat.ID, "hola amor")
-		msg.ReplyToMessageID = update.Message.MessageID
+		name := update.Message.From.FirstName + " " + update.Message.From.LastName
+		message, err := b.interpreter.Interpret(name, update.Message.Text)
+		if err != nil {
+			log.Panic(err)
+		}
 
-		b.botClient.Send(msg)
+		b.sendMessage(update.Message, message)
 	}
+}
+
+func (b *Bot) sendMessage(incomingMessage *tgbotapi.Message, message string) {
+	msg := tgbotapi.NewMessage(incomingMessage.Chat.ID, message)
+	msg.ReplyToMessageID = incomingMessage.MessageID
+
+	b.botClient.Send(msg)
 }
