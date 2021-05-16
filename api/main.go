@@ -1,22 +1,18 @@
 package main
 
-import (
-	"log"
-
-	interpretermodel "api/main.go/api/interpreter/model"
-
-	"api/main.go/api/bot"
-)
+import "fmt"
 
 func main() {
 
-	interpreter := interpretermodel.New()
+	/* interpreter := interpretermodel.New()
 
 	// create bot
-	stockBot, err := bot.Create(interpreter)
+	/stockBot, err := bot.Create(interpreter)
 	if err != nil {
 		log.Panic(err)
 	}
 
 	stockBot.Listen()
+	*/
+	fmt.Sprintf("Hello")
 }
