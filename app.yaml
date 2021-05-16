@@ -1,3 +1,5 @@
 runtime: go116  # or another supported version
 
 instance_class: F2
+
+main: ./api
