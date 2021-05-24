@@ -2,8 +2,8 @@ package bot
 
 import (
 	"log"
+	"stocktracker/api/config"
 
-	"api/main.go/api/config"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 

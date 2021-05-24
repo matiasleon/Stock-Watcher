@@ -1,18 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"stocktracker/api/bot"
+	interpretermodel "stocktracker/api/interpreter/model"
+)
 
 func main() {
 
-	/* interpreter := interpretermodel.New()
+	interpreter := interpretermodel.New()
 
 	// create bot
-	/stockBot, err := bot.Create(interpreter)
+	stockBot, err := bot.Create(interpreter)
 	if err != nil {
 		log.Panic(err)
 	}
 
 	stockBot.Listen()
-	*/
-	fmt.Sprintf("Hello")
 }
